@@ -10,6 +10,6 @@ app.enable('trust proxy');
 app.use('/api/cmmdFRW', require('./Api/CommandFRW'));
 
 
-const Port = process.env.Port || 3000;
+const Port = process.env.Port || 3001;
 
 app.listen(Port, () => console.log("server started"));

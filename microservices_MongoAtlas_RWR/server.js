@@ -9,6 +9,6 @@ app.use('/api/userModel', require('./Api/User'));
 app.enable('trust proxy');
 app.use('/api/cmmdRWR', require('./Api/CommandRWR'));
 
-const Port = process.env.Port || 3000;
+const Port = process.env.Port || 3003;
 
 app.listen(Port, () => console.log("server started"));

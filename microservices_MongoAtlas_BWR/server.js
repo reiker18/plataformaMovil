@@ -4,8 +4,10 @@ const connectDB = require('./DBConnection/Connection');
 
 connectDB();
 app.use(express.json({extended: false}));
+
 // para pruebas solamente
-app.use('/api/userModel', require('./Api/User'));
+//app.use('/api/userModel', require('./Api/User'));
+
 app.enable('trust proxy');
 app.use('/api/cmmdBWR', require('./Api/CommandBWR'));
 
