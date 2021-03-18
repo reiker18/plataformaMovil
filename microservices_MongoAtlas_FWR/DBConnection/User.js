@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const user = new mongoose.Schema({
+const fordward = new mongoose.Schema({
     command:{
         type: String,
         //"default": "arriba"
@@ -14,4 +14,4 @@ const user = new mongoose.Schema({
     }
 })
 
-module.exports = User = mongoose.model('user', user);
+module.exports = Fordward = mongoose.model('fordward', fordward);

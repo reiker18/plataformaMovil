@@ -12,7 +12,7 @@ route.post('/', async(req, res) => {
     //const{command, date, ip_origin} = req.body;
     const{date, ip_origin} = req.body;
     
-    //let user = {};
+    let user = {};
     user.command = "forward";
     user.date = date;
     user.ip_origin = ip_origin;
