@@ -28,7 +28,7 @@ app.enable('trust proxy');
 
 
 io.on('connection', (socket) => {
-    console.log('microservice conectado');
+    console.log('microservice conected');
 
     socket.on('message', msg => {
         console.log(msg);

@@ -1,5 +1,5 @@
 import cv2
-
+from envioCmmd import enviar
 haar_file = 'haarcascade_frontalface_default.xml'
 
 face_cascade = cv2.CascadeClassifier(haar_file)
@@ -13,12 +13,16 @@ while True:
         cv2.rectangle(img, (x, y), (x+w, y+h), (255,0,0),2)
         if x > 250:
             print('izquierda')
+            enviar(3)
         if x < 100:
             print('derecha')
+            enviar(4)
         if y > 160:
             print('abajo')
+            enviar(1)
         if y < 120:
             print('arriba')
+            enviar(2)
 
     cv2.imshow('img',img)
     k = cv2.waitKey(30)
