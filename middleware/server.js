@@ -61,7 +61,7 @@ io.on('connection', (socket) => {
             }
             socket.broadcast.emit('respuesta', stream);
         });
-      });
+    });
 
     socket.on('message', msg => {
         console.log(msg);
