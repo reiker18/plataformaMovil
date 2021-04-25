@@ -27,13 +27,13 @@ connectDB();
 app.use(express.json({extended: false}));
 app.enable('trust proxy');
 
-
+const promesa = mongo.connect("mongodb+srv://root:sasa@testcluster.hznq8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 
 io.on('connection', (socket) => {
     let stream = undefined;
     console.log('microservice conected');
 
-    mongo.connect("mongodb+srv://root:sasa@testcluster.hznq8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true }).then(client => {
+    promesa.then(client => {
   
         console.log("Connected to MongoDB server");
        
@@ -47,19 +47,21 @@ io.on('connection', (socket) => {
         changeStream.on("change", function(event) {
             switch (event.operationType) {
                 case "insert":
+
                     stream = { 
                         ip_origen: event.fullDocument.ip_origin,
                         comando: event.fullDocument.command,
                         fecha: event.fullDocument.date
                     }
-                    
+                    socket.emit('respuesta', stream);
+
                 break;
                 
                 case "delete":
                     console.log("se elimino algo");
                 break
             }
-            socket.broadcast.emit('respuesta', stream);
+            
         });
     });
 

@@ -5,7 +5,7 @@ app.use(express.json({extended: false}));
 
 const io = require('socket.io-client');
 // http://localhost:3009 => direccion del servidor al cual me quiero conectar
-const socket = io("http://18.233.166.171:3009");
+const socket = io("http://localhost:3009");
 
 app.enable('trust proxy');
 
