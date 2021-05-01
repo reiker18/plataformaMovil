@@ -34,8 +34,6 @@ io.on('connection', (socket) => {
     console.log('microservice conected');
 
     promesa.then(client => {
-  
-        console.log("Connected to MongoDB server");
        
         // Select DB and Collection
         const db = client.db("myFirstDatabase")
@@ -54,7 +52,6 @@ io.on('connection', (socket) => {
                         fecha: event.fullDocument.date
                     }
                     socket.emit('respuesta', stream);
-
                 break;
                 
                 case "delete":
@@ -74,7 +71,14 @@ io.on('connection', (socket) => {
     socket.on('disconnect', (msg) => {
         console.log('microservice disconected');
     })
+
+    /*************************************/
+    socket.on('connection', (data)=>{
+        console.log(data);
+    });
+
 });
+
 
 
 http.listen(3009, () => {

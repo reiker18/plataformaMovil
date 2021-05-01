@@ -24,3 +24,7 @@ socket.on("Connect_failed", () => {
 socket.on('respuesta', (respuesta) => {
     console.log(respuesta);
 });
+
+socket.on('announcements', (msg) =>{
+  console.log(msg);
+}); 
